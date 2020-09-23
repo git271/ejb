@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Listar Contratos</title>
+    </h:head>
+    <h:body>
+        
+        <p:dataTable value="#{contratobean.contrato}" var="p">
+            <p:column headerText="ID">
+                <h:outputText value="#{p.idContrato}"/>
+             </p:column>
+            
+              <p:column headerText="FECHA_INICIO">
+                  <h:outputText value="#{p.fechaInicio}"/>
+             </p:column>
+            
+              <p:column headerText="FECHA_FINALIZACION">
+                  <h:outputText value="#{p.fechaFinalizacion}"/>
+             </p:column>
+            
+              <p:column headerText="NOMBRE">
+                  <h:outputText value="#{p.nombreEmpleado}"/>
+             </p:column>
+            
+             <p:column headerText="APELLIDO">
+                 <h:outputText value="#{p.apellidoEmpleado}"/>
+             </p:column>
+            
+             <p:column headerText="DUI">
+                 <h:outputText value="#{p.dui}"/>
+             </p:column>
+            
+        </p:dataTable>     
+        
+    </h:body>
+</html>
+

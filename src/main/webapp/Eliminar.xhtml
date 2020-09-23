@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Eliminar contrato</title>
+    </h:head>
+    <h:body>
+        <h:form id="contrato">
+        <p:growl id="growl" sticky="true" />
+        
+        <p:dataTable id="contratoList" var="contrato" value="#{contratobean.contrato}">
+            
+            <p:column headerText="Id">
+                <h:outputText value="#{contrato.idContrato}"/>
+            </p:column>
+            
+            <p:column headerText="Fecha_inicio">
+                <h:outputText id="FechaI" value="#{contrato.fechaInicio}"/>
+            </p:column>
+            
+            <p:column headerText="Fecha_finalizacion">
+                <h:outputText id="FechaF" value="#{contrato.fechaFinalizacion}"/>
+            </p:column>
+            
+            <p:column headerText="Nombre_empleado">
+                <h:outputText id="Nombre" value="#{contrato.nombreEmpleado}"/>
+            </p:column>
+            
+            <p:column headerText="Apellido_empleado">
+                <h:outputText id="Apellido" value="#{contrato.apellidoEmpleado}"/>
+            </p:column>
+            
+            <p:column headerText="Dui">
+                <h:outputText id="Dui" value="#{contrato.dui}"/>
+            </p:column>
+            
+            
+                
+            <p:column>
+                <p:commandButton update="contratoList" value="Eliminar" icon="ui-icon-closethick"
+                                 action="#{contratobean.Eliminar(contrato)}"
+                                 styleClass="ui-priority-primary">
+                </p:commandButton>
+            </p:column>
+            
+        </p:dataTable>
+    <br/>
+    </h:form>
+    </h:body>
+</html>
+

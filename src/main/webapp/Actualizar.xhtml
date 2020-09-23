@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Actualizar contrato</title>
+    </h:head>
+    <h:body>
+        
+        <h3>Insertar fechas en formato yyyy-MM-dd y dui en numeros para realizar la operacion</h3>
+        
+        <h:form id="contrato">
+        <p:growl id="growl" sticky="true" />
+        <p:dataTable id="contratoList" var="contrato" value="#{contratobean.newcontract}">
+            
+            <p:column headerText="Id">
+                <p:inputText value="#{contratobean.newcontract.idContrato}" converter="#{BigDecimal}" disabled="false" />
+            </p:column>
+            
+            <p:column headerText="Fecha_inicio">
+                <h:inputText value="#{contratobean.newcontract.fechaInicio}">  
+                        <f:convertDateTime pattern="yyyy-MM-dd"/>  
+                </h:inputText>
+            </p:column>
+            
+            <p:column headerText="Fecha_finalizacion">
+                <h:inputText value="#{contratobean.newcontract.fechaFinalizacion}">  
+                        <f:convertDateTime pattern="yyyy-MM-dd"/>  
+                </h:inputText>
+            </p:column>
+            
+            <p:column headerText="Nombre_empleado">
+                <p:inputText id="Nombre" value="#{contratobean.newcontract.nombreEmpleado}"/>
+            </p:column>
+            
+            <p:column headerText="Apellido_empleado">
+                <p:inputText id="Apellido" value="#{contratobean.newcontract.apellidoEmpleado}"/>
+            </p:column>
+            
+            <p:column headerText="Dui">
+                <p:inputText id="Dui" value="#{contratobean.newcontract.dui}"/>
+            </p:column>
+            
+            
+            
+            
+            
+            <p:column>
+            <p:commandButton update="contratoList" value="Actualizar" icon="pi pi-save"
+                             action="#{contratobean.Actualizar(contrato)}"
+                             styleClass="ui-priority-primary">
+            </p:commandButton>
+            </p:column>
+            
+        </p:dataTable>
+        <br/>
+        </h:form>
+    </h:body>
+</html>
+
